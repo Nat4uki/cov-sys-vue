@@ -1,3 +1,4 @@
+<!-- 信息录入页面 -->
 <template>
   <el-tabs v-model="activeName" class="demo-tabs" @tab-click="handleClick">
     <el-tab-pane label="基本信息录入" name="first">

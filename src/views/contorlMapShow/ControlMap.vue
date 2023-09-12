@@ -1,3 +1,5 @@
+<!-- 地图数据展示的控制面板 -->
+
 <template>
 
   <div class="slider-demo-block">

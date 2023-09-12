@@ -1,3 +1,4 @@
+<!-- 平台展示页面 -->
 <template>
     <div class="container">
         <h1>欢迎使用密接人群传播路径可视化平台</h1>

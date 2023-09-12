@@ -1,6 +1,8 @@
+// 导入axios模块
 import axios from 'axios'
-
+// springboot后端服务基础路径
 const baseUrl = "http://localhost:8080"
+// django后端服务基础路径
 const djangoBaseUrl = "http://localhost:8000/predictor/"
 
 const api = {
@@ -32,6 +34,7 @@ const api = {
     addCovPersonGis(covPersonGis){
         return axios.post(baseUrl + '/addCovPersonGis', covPersonGis)
     },
+    // django api暂时没有使用到，有bug
     deleteCovData(covPersonGis){
         return axios.post(baseUrl + '/deleteCovData', covPersonGis)
     },

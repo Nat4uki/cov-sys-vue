@@ -1,3 +1,4 @@
+<!-- 疫情发展预测与展示页面 -->
 <template>
     <div class="about">
         <div class="about-map">
@@ -105,11 +106,15 @@ import axios from "axios";
 
 export default {
     setup() {
-
+        // label标签数据填入
         const labelPosition = ref("top");
+        // label标签具体数据
         const formLabelAlign = reactive({
+            // 管控人数
             num_people: [10, 20, 30],
+            // 追溯时长
             retroactive_time: [12, 15, 24],
+            // 延迟管控时间
             controls_time: [1, 12, 24, 48],
         });
         const formLabelGess = reactive({
@@ -128,7 +133,11 @@ export default {
 
     },
     methods: {
+        // 发送页面通知函数
         sendNotification(type, titles, msg) {
+            // type通知类型；titles通知标题；msg通知信息
+            // 根据发送类型进行分支
+            // 0 普通通知；1 成功通知；2 出错通知
             if (type == 0) {
                 this.$notify.info({ title: titles, message: msg })
             } else if (type == 1) {
@@ -137,7 +146,9 @@ export default {
                 this.$notify.error({ title: titles, message: msg });
             }
         },
+        // 初始化预测参数
         initArgument(formData) {
+            // 通过绑定的数据加入数据
             formData.append("num_people", this.netArgument.num_people)
             formData.append("retroactive_time", this.netArgument.retroactive_time)
             formData.append("controls_time", this.netArgument.controls_time)

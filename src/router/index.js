@@ -1,7 +1,14 @@
+// 导入vue-router路由模块
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import IndexView from '../views/indexView.vue'
 
+// 共五个页面:
+// / 主页 平台启动初始页面
+// /home 人员数据管理页面
+// /about 轨迹数据展示页面
+// /data 疫情数据展示页面
+// /mapDetailSet 疫情发展预测与展示页面
 const routes = [
   {
     path: '/',
