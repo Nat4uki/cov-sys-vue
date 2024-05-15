@@ -146,6 +146,7 @@ export default {
                 this.$notify.error({ title: titles, message: msg });
             }
         },
+        // ######################################
         // 初始化预测参数
         initArgument(formData) {
             // 通过绑定的数据加入数据
@@ -158,24 +159,26 @@ export default {
             this.initArgument(data);
             this.sendNotification(0, "通知", "开始预测")
             // 改为静态数据
-            setTimeout(()=>{
-                this.sendNotification(1, "通知", "settimeout预测成功")
-                this.plotSpread(data)
-            },3000)
-            // axios.post(this.djangoBaseUrl + "predictor/predict/", data)
-            //     .then((response) => {
-            //         console.log(response.data.result)
-            //         if (response.data.result == 250) {
-            //             this.sendNotification(1, "通知", "预测成功")
-            //             this.plotSpread(data)
-            //         } else {
-            //             this.sendNotification(2, "通知", "失败，请重试")
-            //         }
-            //     })
-            //     .catch((error) => {
-            //         this.sendNotification(0, "预测错误", error)
-            //     });
+            // setTimeout(()=>{
+            //     this.sendNotification(1, "通知", "预测成功")
+            //     this.plotSpread(data)
+            // },3000)
+            //实时预测
+            axios.post(this.djangoBaseUrl + "predictor/predict/", data)
+                .then((response) => {
+                    console.log(response.data.result)
+                    if (response.data.result == 250) {
+                        this.sendNotification(1, "通知", "预测成功")
+                        this.plotSpread(data)
+                    } else {
+                        this.sendNotification(2, "通知", "失败，请重试")
+                    }
+                })
+                .catch((error) => {
+                    this.sendNotification(0, "预测错误", error)
+                });
         },
+        // ########################################
         async plotSpread(data) {
             // let data = new FormData()
             // this.initArgument(data);

@@ -85,9 +85,10 @@ export default{
     let populationDesity = ref(0)
 //    let defaultDate = new Date("2022-03-01");
     let value8 = ref(0)
+    // ##########################
     let defaultDate = ref([
-      new Date(2022, 2, 1, 0, 0, 0),
-      new Date(2022, 2, 1, 0, 0, 0)
+      new Date(2022, 8, 14, 0, 0, 0),
+      new Date(2022, 9, 24, 0, 0, 0)
     ])
     const marks = reactive({
       0: '未设置',
@@ -126,12 +127,14 @@ export default{
     logMsg(){
       console.log(this.trackDataSelect);
     },
+    //##########################################
     disabledDate(time){
-      let start = new Date("2022-02-28")
-      let end = new Date("2022-03-9")
+      let start = new Date("2022-08-24")
+      let end = new Date("2022-09-15")
       let now = time.getTime()
       return (now > end || now < start)
     },
+    //##########################################
     onPickDate(dateObj){
       this.$emit('sendDate',dateObj)
     }

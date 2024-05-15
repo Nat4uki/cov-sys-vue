@@ -55,9 +55,10 @@ export default {
     fileImport(){
       let file = document.getElementById('files').files[0]
       this.fileName = file.name
+      console.log(document.getElementById('files').files)
     },
     upLoadFile(){
-      const path = "D:/A-VUE/DATA/newState/state/" + this.fileName;
+      const path = "E:/Work/Code/dataSynt/processed_no/" + this.fileName;
       console.log(path);
       api.postUpLoadPath(path).then(res=>{
         const msg = res.data;
